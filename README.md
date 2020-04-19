@@ -46,3 +46,6 @@ rld!
 1
 
 ```
+## Compatability
+
+Known to work on linux, expected to work on OS X, BSD or similar, and it would be a pleasant suprise if it worked on Windows.
