@@ -1,0 +1,23 @@
+[package]
+name = "http_chunker"
+version = "0.1.0"
+authors = ["paulpr0 <github@pr0.co.uk>"]
+description = "A simple utility for encoding data in the format expeted when Transfer-Encoding:chunked is set on an HTTP response."
+license = "MIT"
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+argh = "0.1.3"
+mio = "0.7.0"
+futures = "0.3"
+#tokio = {git = "https://github.com/tokio-rs/tokio/", features = ["rt-core", "io-std", "io-util", "fs", "time"] }
+tokio = {version = "0.2.18", features = ["rt-core", "io-std", "io-util", "fs", "time"] }
+tokio-test = {version = "0.2.1"}
+
+[profile.release]
+opt-level = 'z'  # Optimize for size.
+lto = true
+codegen-units = 1
+panic = 'abort'
