@@ -10,7 +10,11 @@ http_chunker has two options - a desired chunk size, and a max wait time. It wil
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 ![Rust](https://github.com/paulpr0/http_chunker/workflows/Rust/badge.svg)
+## Why?
+I had a need to stream simple commands over http (think ping - it isn't but it's a good example). I didn't want to set up a webserver, write a script to run the command, then create a websocket or javascript poll to update the results.
 
+I wanted use xinetd to transform the process into a service, and write a small script to wrap the http request and response around stdin and stdout.
+The problem this tool solves is that you either have to use chunked encoding or specify the content length in an http response. I don't know the content length in advance, so need something to encode chunks. http_chunker is that tool.
 ## Examples
 
 ```bash
@@ -46,6 +50,7 @@ rld!
 1
 
 ```
+
 ## Compatability
 
 Known to work on linux, expected to work on OS X, BSD or similar, and it would be a pleasant suprise if it worked on Windows.
