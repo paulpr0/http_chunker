@@ -8,6 +8,9 @@ is set on an http response.
 
 http_chunker has two options - a desired chunk size, and a max wait time. It will try to read chunk size bytes from input and write them to the output, but if the max wait is reached, it will encode and write out any data it has read. 
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+![Rust](https://github.com/paulpr0/http_chunker/workflows/Rust/badge.svg)
+
 ## Examples
 
 ```bash
