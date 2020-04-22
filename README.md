@@ -34,7 +34,7 @@ Options:
 ```bash
 $ echo "hello world!" | http_chunker
 
-13
+D
 hello world!
 ```
 
