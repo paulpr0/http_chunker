@@ -16,7 +16,7 @@ struct Opts {
 }
 
 async fn write_chunk<F: io::AsyncWrite + Unpin>(out: &mut F, buf:&[u8]) {
-    out.write(format!("\r\n{}\r\n", buf.len()).as_bytes()).await.expect("Output error");
+    out.write(format!("\r\n{:X}\r\n", buf.len()).as_bytes()).await.expect("Output error");
     out.write(buf).await.expect("Output error");
 }
 
@@ -81,7 +81,7 @@ mod test {
             .read(b"world!")
             .build();
         let mut mout = Builder::new()
-            .write(b"\r\n12\r\nhello world!")
+            .write(b"\r\nC\r\nhello world!")
             .build();
         let opts = Opts {max_wait: 10, chunk_size:50};
 
